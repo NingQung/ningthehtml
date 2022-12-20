@@ -1,0 +1,234 @@
+html {
+  background-color: white;
+  font-size: 15px;
+}
+body{
+  position: relative;
+  display: grid;
+  grid-template-rows: [body_top] 1fr [body_bot] ;
+  grid-template-columns: [body_left] 0.2fr [body_spilt] 0.8fr [body_right];
+}
+html , body{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: 'electroharmonix';
+  src: url('./electroharmonix-webfont.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'BeonMedium';
+  src: url('./41i8w-xp657.woff2') format('woff2');
+}
+/* ::selection {
+	background: #b00000;
+	color: #fff;
+} */
+
+
+#navland{
+  grid-row: body_top/body_bot;
+  grid-column: body_left/body_spilt;
+  background-color: #007bff;
+  display: grid;
+  z-index: -5;
+}
+#navtest{
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 36px 64px;
+  border-color: transparent transparent transparent transparent;
+}
+.navitem{
+  position: absolute;
+  height: 15%;
+  width: 100%;
+  background-color: #1E4B74;
+  grid-column: body_left/body_spilt;
+}
+#naver{
+  top:5%;
+}
+#navcss{
+  top: 25%;
+}
+#navml{
+  top:45%;
+}
+#navpre{
+  top:65%;
+}
+#mainland{
+  display: grid;
+  background-color: #B5D4E3;
+}
+
+#mainlanda{
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  height: 100px;
+  width: 200px;
+  border-radius:5px;
+}
+#scr-show{
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  height: 100px;
+  width: 200px;
+  background-color: black;
+  border-radius:5px;
+  z-index: 1;
+  cursor: pointer;
+  user-select: none
+}
+
+.textbox{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  transform: translate(-50%,-50%);
+  color: white;
+	background: linear-gradient(to right,#095fab 10%, #25abe8 40%, #57d75b 70%);
+  background-size: 100% auto;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	display: inline-block;
+  font-family: 'BeonMedium';
+}
+.circle{
+  position: absolute;
+  height:20px;
+  width:20px;
+  border:1px solid black;
+  border-radius:12px;
+}
+#ul-circle{
+  left:-20px;
+  top:-25px;
+}
+.dotarr{
+  width: 10px;
+  height: 10px;
+  display: block;
+  border-width: 0 10px 10px 0;
+  border-color: rgb(255, 0, 0);
+  border-style: double;
+  box-sizing: border-box;
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition: transform 0.4s cubic-bezier(1,0,1,1);
+}
+#ul-cirarr{
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform-origin: center;
+  transform: translate(-50%,-50%) rotate(-45deg);
+  transition: transform 0.4s cubic-bezier(1,0,1,1);
+}
+.dotbar{
+  position: absolute;
+  width: 30px;
+  height: 5px;
+  border-left: 5px solid white;
+  border-right: 5px solid white;
+  z-index: 3;
+  box-sizing: border-box;
+  opacity: 1;
+  transition: width 0.3s cubic-bezier(0,0,1,.2) 0.9s;
+}
+#top-twodot{
+  right: 45px;
+  top: 35px;
+  transition: width 0.3s cubic-bezier(.2,1,.2,1) 1.2s ,top 0.3s cubic-bezier(.2,1,.2,1) 1.2s,right 0.3s cubic-bezier(.2,1,.2,1) 1.2s;
+}
+#bot-twodot{
+  right: 45px;
+  bottom: 35px;
+  transition: width 0.3s cubic-bezier(.2,1,.2,1) 1.2s ,bottom 0.3s cubic-bezier(.2,1,.2,1) 1.2s,right 0.3s cubic-bezier(.2,1,.2,1) 1.2s;
+}
+#censquare{
+  position: absolute;
+  right: 35px;
+  top: 40px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  z-index: 3;
+}
+#leftbar{
+  position: absolute;
+  left: 50px;
+  top: 0px;
+  height: 95px;
+  width: 5px;
+  border: 1px solid black;
+  border-radius: 3px;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s 0.4s,left 0.4s cubic-bezier(0,-0.2,1,-0.4);
+}
+#topbar{
+  position: absolute;
+  left: 5px;
+  top: -18px;
+  height: 5px;
+  width: 190px;
+  border-radius: 3px;
+  border: 1px solid black;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.4s 0.4s, top 0.4s cubic-bezier(0,-0.2,1,-0.4);
+  z-index:-3;
+}
+
+#mainlanda:hover #ul-cirarr{
+  transform:translate(-50%,-50%) rotate(45deg);
+}
+#mainlanda:hover #leftbar{
+  left: -13px;
+  transform: scaleY(1);
+  background-color: red;
+  border: 1px solid red;
+}
+#mainlanda:hover #topbar{
+  top: 25px;
+  transform: scaleX(0);
+  background-color: red;
+  border: 1px solid red;
+}
+#mainlanda:hover #scr-text{
+  left: 25%;
+}
+#mainlanda:hover #top-twodot{
+  top: 20px;
+  animation: flash2to1 200ms ease 1250ms 1 forwards normal;
+}
+#mainlanda:hover #bot-twodot{
+  bottom: 20px;
+  animation: flash2to1 200ms ease 1250ms 1 forwards normal;
+}
+#mainlanda:hover .dotbar{
+  width: 60px;
+  right: 30px;
+}
+
+
+@keyframes flash2to1 {
+  0% ,36% ,73%{
+    opacity: 0;
+  }
+  17% ,54% ,100%{
+    opacity: 1;
+  }
+}
